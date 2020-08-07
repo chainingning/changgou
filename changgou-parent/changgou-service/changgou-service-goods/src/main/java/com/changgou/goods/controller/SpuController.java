@@ -26,6 +26,17 @@ public class SpuController {
     private SpuService spuService;
 
     /**
+     * 下架
+     * @param id
+     * @return
+     */
+    @PutMapping("/pull/{id}")
+    public Result pull(@PathVariable Long id){
+        spuService.pull(id);
+        return new Result(true,StatusCode.OK,"下架成功");
+    }
+
+    /**
      * 审核
      * @param id
      * @return
