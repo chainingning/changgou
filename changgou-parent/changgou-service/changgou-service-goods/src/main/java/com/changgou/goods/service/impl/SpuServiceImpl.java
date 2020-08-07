@@ -43,6 +43,25 @@ public class SpuServiceImpl implements SpuService {
 
 
     /**
+     * 商品审核
+     * @param spuId
+     */
+    @Override
+    public void audit(Long spuId) {
+        //查询商品
+        Spu spu = spuMapper.selectByPrimaryKey(spuId);
+        //判断商品是否已经删除
+        if(spu.getIsDelete().equalsIgnoreCase("1")){
+            throw new RuntimeException("该商品已经删除！");
+        }
+        //实现上架和审核
+        //TODO 出现了魔法值，使用枚举或者全局变量定义
+        spu.setStatus("1"); //审核通过
+        spu.setIsMarketable("1"); //上架
+        spuMapper.updateByPrimaryKeySelective(spu);
+    }
+
+    /**
      * 根据id查询goods数据
      * @param id: spu的i
      * @return

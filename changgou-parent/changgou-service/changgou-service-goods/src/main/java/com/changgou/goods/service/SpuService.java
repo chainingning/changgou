@@ -13,6 +13,12 @@ import java.util.List;
  *****/
 public interface SpuService {
 
+    /***
+     * 商品审核
+     * @param spuId
+     */
+    void audit(Long spuId);
+
     /**
      * 根据id查询goods
      * @param id: spu的i

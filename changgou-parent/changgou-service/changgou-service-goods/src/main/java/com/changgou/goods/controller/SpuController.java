@@ -26,6 +26,17 @@ public class SpuController {
     private SpuService spuService;
 
     /**
+     * 审核
+     * @param id
+     * @return
+     */
+    @PutMapping("/audit/{id}")
+    public Result audit(@PathVariable Long id){
+        spuService.audit(id);
+        return new Result(true,StatusCode.OK,"审核成功");
+    }
+
+    /**
      * 根据spuId查询goods
      *
      */
