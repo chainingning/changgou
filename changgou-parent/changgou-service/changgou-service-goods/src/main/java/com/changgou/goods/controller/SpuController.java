@@ -25,6 +25,30 @@ public class SpuController {
     @Autowired
     private SpuService spuService;
 
+
+
+    /**
+     * 恢复数据
+     * @param id
+     * @return
+     */
+    @PutMapping("/restore/{id}")
+    public Result restore(@PathVariable Long id){
+        spuService.restore(id);
+        return new Result(true,StatusCode.OK,"数据恢复成功！");
+    }
+
+    /**
+     * 逻辑删除
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/logic/delete/{id}")
+    public Result logicDelete(@PathVariable Long id){
+        spuService.logicDelete(id);
+        return new Result(true,StatusCode.OK,"逻辑删除成功！");
+    }
+
     /**
      *  批量上架
      * @param ids

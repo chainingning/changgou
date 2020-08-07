@@ -12,7 +12,17 @@ import java.util.List;
  * @Date 2019/6/14 0:16
  *****/
 public interface SpuService {
+    /***
+     * 还原被删除商品
+     * @param spuId
+     */
+    void restore(Long spuId);
 
+    /***
+     * 逻辑删除
+     * @param spuId
+     */
+    void logicDelete(Long spuId);
     /***
      * 商品上架
      * @param spuId
