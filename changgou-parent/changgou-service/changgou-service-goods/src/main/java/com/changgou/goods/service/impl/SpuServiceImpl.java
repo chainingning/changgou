@@ -1,9 +1,11 @@
 package com.changgou.goods.service.impl;
-
+import com.alibaba.fastjson.JSON;
 import com.changgou.entity.IdWorker;
+import com.changgou.goods.dao.BrandMapper;
+import com.changgou.goods.dao.CategoryMapper;
+import com.changgou.goods.dao.SkuMapper;
 import com.changgou.goods.dao.SpuMapper;
-import com.changgou.goods.pojo.Goods;
-import com.changgou.goods.pojo.Spu;
+import com.changgou.goods.pojo.*;
 import com.changgou.goods.service.SpuService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -12,7 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /****
  * @Author:shenkunlin
@@ -28,6 +32,15 @@ public class SpuServiceImpl implements SpuService {
     @Autowired
     private IdWorker idWorker;
 
+    @Autowired
+    private CategoryMapper categoryMapper;
+
+    @Autowired
+    private BrandMapper brandMapper;
+
+    @Autowired
+    private SkuMapper skuMapper;
+
 
     /**
      * 添加商品信息
@@ -36,9 +49,52 @@ public class SpuServiceImpl implements SpuService {
     @Override
     public void saveGoods(Goods goods) {
         //spu->一个
-
+        Spu spu = goods.getSpu();
+        spu.setId(idWorker.nextId());
+        spuMapper.insertSelective(spu);
 
         //Sku->List集合
+        List<Sku> skuList = goods.getSkuList();
+
+
+        Category category = categoryMapper.selectByPrimaryKey(spu.getCategory3Id());
+        Brand brand = brandMapper.selectByPrimaryKey(spu.getBrandId());
+        Date date = new Date();
+        for (Sku sku : skuList) {
+            //构建SKU名称，采用SPU+规格值组装
+
+            //防止空指针
+            if(StringUtils.isEmpty(sku.getSpec())){
+                sku.setSpec("{}");
+            }
+            //获取Spu的名字
+            String name = spu.getName();
+
+            //将规格转换成Map
+            Map<String,String> specMap = JSON.parseObject(sku.getSpec(), Map.class);
+            //循环组装Sku的名字
+            for (Map.Entry<String, String> entry : specMap.entrySet()) {
+                name+="  "+entry.getValue();
+            }
+            sku.setName(name);
+            //ID
+            sku.setId(idWorker.nextId());
+            //SpuId
+            sku.setSpuId(spu.getId());
+            //创建日期
+            sku.setCreateTime(date);
+            //修改日期
+            sku.setUpdateTime(date);
+            //商品分类ID
+            sku.setCategoryId(spu.getCategory3Id());
+            //分类名字
+            sku.setCategoryName(category.getName());
+            //品牌名字
+            sku.setBrandName(brand.getName());
+            //增加 TODO：不能循环入库
+            skuMapper.insertSelective(sku);
+        }
+
     }
 
     /**
