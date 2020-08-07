@@ -26,6 +26,17 @@ public class SpuController {
     private SpuService spuService;
 
     /**
+     *  批量上架
+     * @param ids
+     * @return
+     */
+    @PutMapping("/put/many")
+    public Result putMany(@RequestBody Long[] ids){
+        int count = spuService.putMany(ids);
+        return new Result(true,StatusCode.OK,"上架"+count+"个商品");
+    }
+
+    /**
      * 商品上架
      * @param id
      * @return

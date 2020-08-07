@@ -19,6 +19,12 @@ public interface SpuService {
      */
     void put(Long spuId);
 
+    /**
+     * 批量上架
+     * @param ids
+     * @return
+     */
+    int putMany(Long[] ids);
     /***
      * 商品下架
      * @param spuId
