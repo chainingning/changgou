@@ -43,6 +43,28 @@ public class SpuServiceImpl implements SpuService {
 
 
     /**
+     * 根据id查询goods数据
+     * @param id: spu的i
+     * @return
+     */
+    @Override
+    public Goods findGoodsById(Long id) {
+        //查询spu
+        Spu spu = spuMapper.selectByPrimaryKey(id);
+
+        //查询list<Sku>
+        Sku sku = new Sku();
+        sku.setSpuId(id);
+
+        List<Sku> skuList = skuMapper.select(sku);
+        Goods goods = new Goods();
+        goods.setSpu(spu);
+        goods.setSkuList(skuList);
+
+        return goods;
+    }
+
+    /**
      * 添加商品信息
      * @param goods
      */
