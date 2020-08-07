@@ -14,6 +14,12 @@ import java.util.List;
 public interface SpuService {
 
     /***
+     * 商品上架
+     * @param spuId
+     */
+    void put(Long spuId);
+
+    /***
      * 商品下架
      * @param spuId
      */
