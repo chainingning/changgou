@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -207,7 +208,6 @@ public class SpuServiceImpl implements SpuService {
         Date date = new Date();
         for (Sku sku : skuList) {
             //构建SKU名称，采用SPU+规格值组装
-
             //防止空指针
             if(StringUtils.isEmpty(sku.getSpec())){
                 sku.setSpec("{}");
