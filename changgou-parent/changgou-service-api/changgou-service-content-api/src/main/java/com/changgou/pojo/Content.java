@@ -1,4 +1,4 @@
-package com.changgou.content.pojo;
+package com.changgou.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
