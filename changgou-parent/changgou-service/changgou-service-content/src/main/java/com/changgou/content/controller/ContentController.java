@@ -23,6 +23,13 @@ public class ContentController {
     @Autowired
     private ContentService contentService;
 
+
+    @GetMapping(value = "/list/category/{id}")
+    public Result<List<Content>> findByCategory(@PathVariable Long id){
+        return  null;
+    }
+
+
     /***
      * Content分页条件搜索实现
      * @param content

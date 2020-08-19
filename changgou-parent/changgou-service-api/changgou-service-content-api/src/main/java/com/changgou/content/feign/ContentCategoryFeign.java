@@ -1,7 +1,11 @@
 package com.changgou.content.feign;
-import entity.Result;
+import com.changgou.entity.PageResult;
+import com.changgou.entity.Result;
+import com.changgou.content.pojo.ContentCategory;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /****
  * @Author:chaining
@@ -20,7 +24,7 @@ public interface ContentCategoryFeign {
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) ContentCategory contentCategory, @PathVariable int page, @PathVariable int size);
+    Result<PageResult> findPage(@RequestBody(required = false) ContentCategory contentCategory, @PathVariable int page, @PathVariable int size);
 
     /***
      * ContentCategory分页搜索实现
@@ -29,7 +33,7 @@ public interface ContentCategoryFeign {
      * @return
      */
     @GetMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@PathVariable int page, @PathVariable int size);
+    Result<PageResult> findPage(@PathVariable int page, @PathVariable int size);
 
     /***
      * 多条件搜索品牌数据

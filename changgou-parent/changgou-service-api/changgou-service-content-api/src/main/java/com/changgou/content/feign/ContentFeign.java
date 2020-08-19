@@ -1,7 +1,7 @@
-package com.changgou.feign;
+package com.changgou.content.feign;
 import com.changgou.entity.PageResult;
 import com.changgou.entity.Result;
-import com.changgou.pojo.Content;
+import com.changgou.content.pojo.Content;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +15,12 @@ import java.util.List;
 @FeignClient(name="content")
 @RequestMapping("/content")
 public interface ContentFeign {
+
+    /***
+     * 根据分类ID查询所有广告
+     */
+    @GetMapping(value = "/list/category/{id}")
+    Result<List<Content>> findByCategory(@PathVariable Long id);
 
     /***
      * Content分页条件搜索实现
