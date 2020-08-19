@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb70928b-7a05-4768-8f1a-fea07f8d5d9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-goods/src/main/java/com/changgou/goods/service/impl/SpuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-goods/src/main/java/com/changgou/goods/service/impl/SpuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +97,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CodeApplication">
+  <component name="RunManager" selected="Spring Boot.CanalApplication">
     <configuration name="CodeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.itheima.CodeApplication" />
       <module name="code-template" />
@@ -112,6 +107,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CanalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="changgou-service-canal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.CanalApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -160,12 +168,14 @@
       <item itemvalue="Spring Boot.EurekaApplication" />
       <item itemvalue="Spring Boot.GoodsApplication" />
       <item itemvalue="Spring Boot.FileApplication" />
+      <item itemvalue="Spring Boot.CanalApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.CanalApplication" />
+        <item itemvalue="Spring Boot.EurekaApplication" />
         <item itemvalue="Application.CodeApplication" />
         <item itemvalue="Spring Boot.FileApplication" />
-        <item itemvalue="Spring Boot.EurekaApplication" />
         <item itemvalue="Spring Boot.GoodsApplication" />
       </list>
     </recent_temporary>
@@ -175,7 +185,17 @@
       <serviceView>
         <option name="contentProportion" value="0.16991343" />
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2bd95524" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2bd95524" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bdc6d2aa" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -222,7 +242,7 @@
       <workItem from="1595472138337" duration="2527000" />
       <workItem from="1596162600435" duration="7087000" />
       <workItem from="1596764708878" duration="40206000" />
-      <workItem from="1597630127864" duration="9088000" />
+      <workItem from="1597630127864" duration="12694000" />
     </task>
     <servers />
   </component>
