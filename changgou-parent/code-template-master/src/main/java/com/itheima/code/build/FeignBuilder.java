@@ -3,7 +3,7 @@ package com.itheima.code.build;
 import java.util.Map;
 
 /****
- * @Author:shenkunlin
+ * @Author:chaining
  * @Description:Feign构建
  * @Date 2019/6/14 19:13
  *****/

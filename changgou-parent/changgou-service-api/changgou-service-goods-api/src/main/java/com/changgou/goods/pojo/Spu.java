@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /****
- * @Author:shenkunlin
+ * @Author:chaining
  * @Description:Spu构建
  * @Date 2019/6/14 19:13
  *****/

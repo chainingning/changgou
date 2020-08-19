@@ -1,7 +1,7 @@
 package com.itheima.code.swagger;
 
 /*****
- * @Author: shenkunlin
+ * @Author: chaining
  * @Date: 2019/7/23 14:54
  * @Description: com.itheima.code.util
  *  Swagger参数

@@ -3,7 +3,7 @@ import ${package_pojo}.${Table};
 import tk.mybatis.mapper.common.Mapper;
 
 /****
- * @Author:shenkunlin
+ * @Author:chaining
  * @Description:${Table}的Dao
  *****/
 public interface ${Table}Mapper extends Mapper<${Table}> {

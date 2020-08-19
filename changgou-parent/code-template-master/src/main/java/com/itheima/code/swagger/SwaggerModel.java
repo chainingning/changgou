@@ -3,7 +3,7 @@ package com.itheima.code.swagger;
 import java.util.List;
 
 /*****
- * @Author: shenkunlin
+ * @Author: chaining
  * @Date: 2019/7/22 15:29
  * @Description: com.itheima.code.util
  *  javabean信息

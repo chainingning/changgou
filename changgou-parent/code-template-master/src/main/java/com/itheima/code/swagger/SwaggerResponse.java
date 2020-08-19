@@ -1,7 +1,7 @@
 package com.itheima.code.swagger;
 
 /*****
- * @Author: shenkunlin
+ * @Author: chaining
  * @Date: 2019/7/23 14:51
  * @Description: com.itheima.code.util
  *  响应数据配置
