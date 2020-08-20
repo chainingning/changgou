@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb70928b-7a05-4768-8f1a-fea07f8d5d9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/src/main/java/com/changgou/CanalApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/src/main/java/com/changgou/CanalApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/dao/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/dao/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/feign/Feign.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/feign/Feign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/pojo/Pojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/pojo/Pojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/service/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/service/impl/ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/template/service/impl/ServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/src/main/java/com/changgou/canal/CanalDataEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-canal/src/main/java/com/changgou/canal/CanalDataEventListener.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,10 +63,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-content-api/src/main/java/com/changgou/feign" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -253,7 +245,7 @@
       <workItem from="1595472138337" duration="2527000" />
       <workItem from="1596162600435" duration="7087000" />
       <workItem from="1596764708878" duration="40206000" />
-      <workItem from="1597630127864" duration="19941000" />
+      <workItem from="1597630127864" duration="22295000" />
     </task>
     <servers />
   </component>
