@@ -15,6 +15,7 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
@@ -52,20 +53,24 @@ public class SkuServiceImpl implements SkuService {
     @Override
     public Map search(Map<String, Object> searchMap) {
 
-        String keywords = searchMap.get("keywords").toString();
-        if (StringUtils.isEmpty(keywords)) {
-            //赋值给一个默认的值
-            keywords = "华为";
-        }
-
         /**
          * NativeSearchQueryBuilder：搜索条件构建对象，用于封装各种搜索条件
          */
         //2.创建查询对象 的构建对象
         NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
 
+        String keywords = null;
+        if (!CollectionUtils.isEmpty(searchMap)) {
+            keywords = searchMap.get("keywords").toString();
+            if (StringUtils.isEmpty(keywords)) {
+                //赋值给一个默认的值
+                keywords = "华为";
+            }
+        }
+
         //3.设置查询的条件
-        nativeSearchQueryBuilder.withQuery(QueryBuilders.matchQuery("name", keywords));
+        nativeSearchQueryBuilder.withQuery(QueryBuilders.queryStringQuery(keywords).field("name"));
+
 
         NativeSearchQuery query = nativeSearchQueryBuilder.build();
         /**
