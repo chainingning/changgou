@@ -1,5 +1,7 @@
 package com.changgou.search.service;
 
+import java.util.Map;
+
 /**
  * @ClassName SkuService
  * @Description:
@@ -8,6 +10,14 @@ package com.changgou.search.service;
  * @Version V1.0
  **/
 public interface SkuService {
+
+    /**
+     * 条件搜索
+     * @param searchMap
+     * @return Map
+     */
+    Map<String,Object> search(Map<String,Object> searchMap);
+
     /**
      * 导入索引库
      */

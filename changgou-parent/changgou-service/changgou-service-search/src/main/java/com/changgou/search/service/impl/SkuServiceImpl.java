@@ -7,9 +7,17 @@ import com.changgou.goods.pojo.Sku;
 import com.changgou.search.dao.SkuEsMapper;
 import com.changgou.search.pojo.SkuInfo;
 import com.changgou.search.service.SkuService;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +36,65 @@ public class SkuServiceImpl implements SkuService {
 
     @Autowired
     private SkuEsMapper skuEsMapper;
+
+    /**
+     * ElasticsearchTemplate：可以实现索引库的增删改查[高级搜索]
+     */
+    @Autowired
+    private ElasticsearchTemplate elasticsearchTemplate;
+
+
+    /**
+     * 条件搜索
+     * @param searchMap
+     * @return Map
+     */
+    @Override
+    public Map search(Map<String, Object> searchMap) {
+
+        String keywords = searchMap.get("keywords").toString();
+        if (StringUtils.isEmpty(keywords)) {
+            //赋值给一个默认的值
+            keywords = "华为";
+        }
+
+        /**
+         * NativeSearchQueryBuilder：搜索条件构建对象，用于封装各种搜索条件
+         */
+        //2.创建查询对象 的构建对象
+        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
+
+        //3.设置查询的条件
+        nativeSearchQueryBuilder.withQuery(QueryBuilders.matchQuery("name", keywords));
+
+        NativeSearchQuery query = nativeSearchQueryBuilder.build();
+        /**
+         * 执行搜索，响应结果给我
+         * 1.搜索条件封装对象
+         * 2.搜索的结果集（集合数据)需要转换的类型
+         * 3.AggregatedPage<SkuInfo>:搜索结果集的封装
+         */
+        AggregatedPage<SkuInfo> page = elasticsearchTemplate.queryForPage(query, SkuInfo.class);
+
+        //分析数据
+
+        //分页参数-总记录数
+        long totalElements = page.getTotalElements();
+        //分页参数-总页数
+        int totalPages = page.getTotalPages();
+        //获取数据结果集
+        List<SkuInfo> contents = page.getContent();
+
+
+        //封装一个Map存储所有数据，并返回
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("rows",contents);
+        resultMap.put("total",totalElements);
+        resultMap.put("totalPages",totalPages);
+
+
+        return resultMap;
+    }
 
     @Override
     public void importData() {
