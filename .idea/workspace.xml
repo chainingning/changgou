@@ -62,6 +62,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-content-api/src/main/java/com/changgou/feign" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -245,7 +246,7 @@
       <workItem from="1595472138337" duration="2527000" />
       <workItem from="1596162600435" duration="7087000" />
       <workItem from="1596764708878" duration="40206000" />
-      <workItem from="1597630127864" duration="62709000" />
+      <workItem from="1597630127864" duration="63187000" />
     </task>
     <servers />
   </component>
