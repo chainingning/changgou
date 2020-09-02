@@ -3,6 +3,7 @@ package com.changgou.search.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.changgou.entity.Result;
 import com.changgou.goods.feign.SkuFeign;
+import com.changgou.goods.pojo.Brand;
 import com.changgou.goods.pojo.Sku;
 import com.changgou.search.dao.SkuEsMapper;
 import com.changgou.search.pojo.SkuInfo;
@@ -110,6 +111,10 @@ public class SkuServiceImpl implements SkuService {
         List<String> categoryList = searchCategoryList(nativeSearchQueryBuilder);
         resultMap.put("categoryList", categoryList);
 
+        //查询品牌集合[搜索条件]
+        List<String> brandList = searchBrandList(nativeSearchQueryBuilder);
+        resultMap.put("brandList", brandList);
+
         return resultMap;
     }
 
@@ -146,6 +151,43 @@ public class SkuServiceImpl implements SkuService {
         }
         return categoryList;
     }
+
+
+    /**
+     * 品牌分组查询
+     * @param nativeSearchQueryBuilder
+     * @return
+     */
+    private List<String> searchBrandList(NativeSearchQueryBuilder nativeSearchQueryBuilder) {
+        /**
+         * 分组查询分类集合
+         * 1.addAggregation():添加一个聚合操作
+         * terms:取别名
+         * field:根据哪个域进行分组
+         */
+        nativeSearchQueryBuilder.addAggregation(AggregationBuilders.terms("skuBrand").field("brandName").size(50));
+        AggregatedPage<Brand> aggregatedPage = elasticsearchTemplate.queryForPage(nativeSearchQueryBuilder.build(), Brand.class);
+
+
+
+        /**
+         * 获取分组结果
+         * aggregatePage.getAggregation():获取的是集合，可以根据多个域进行分组
+         * .get("skuCategory")：获取指定域的集合数据
+         */
+        StringTerms stringTerms = aggregatedPage.getAggregations().get("skuBrand");
+        List<String> brandList = new ArrayList<>();
+
+        if (stringTerms != null) {
+            for (StringTerms.Bucket bucket : stringTerms.getBuckets()) {
+                String keyAsString = bucket.getKeyAsString();//其中的一个品牌名字
+                brandList.add(keyAsString);
+            }
+        }
+        return brandList;
+    }
+
+
 
     @Override
     public void importData() {
