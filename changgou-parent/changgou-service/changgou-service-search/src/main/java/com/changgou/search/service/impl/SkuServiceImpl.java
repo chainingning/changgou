@@ -108,15 +108,20 @@ public class SkuServiceImpl implements SkuService {
         resultMap.put("totalPages", totalPages);
 
         //分类分组查询实现
-        List<String> categoryList = searchCategoryList(nativeSearchQueryBuilder);
-        resultMap.put("categoryList", categoryList);
+        //当用户选择了分类，将分类作为搜索条件，则不需要对分类进行分组搜索，因为分组搜索的数据是用于显示分类搜索条件的
+        if (searchMap == null || StringUtils.isEmpty(searchMap.get("category"))) {
+            List<String> categoryList = searchCategoryList(nativeSearchQueryBuilder);
+            resultMap.put("categoryList", categoryList);
+        }
 
         //查询品牌集合[搜索条件]
-        List<String> brandList = searchBrandList(nativeSearchQueryBuilder);
-        resultMap.put("brandList", brandList);
+        //跟分类场景相同
+        if (searchMap == null || StringUtils.isEmpty(searchMap.get("brand"))) {
+            List<String> brandList = searchBrandList(nativeSearchQueryBuilder);
+            resultMap.put("brandList", brandList);
+        }
 
         //规格查询
-
         return resultMap;
     }
 
