@@ -16,7 +16,7 @@ public interface SkuService {
      * @param searchMap
      * @return Map
      */
-    Map<String,Object> search(Map<String,Object> searchMap);
+    Map<String,Object> search(Map<String,String> searchMap);
 
     /**
      * 导入索引库

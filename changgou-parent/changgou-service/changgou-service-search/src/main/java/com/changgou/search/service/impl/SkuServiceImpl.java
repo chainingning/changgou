@@ -16,6 +16,8 @@ import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.StringTerms;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
@@ -58,7 +60,7 @@ public class SkuServiceImpl implements SkuService {
      * @return Map
      */
     @Override
-    public Map search(Map<String, Object> searchMap) {
+    public Map search(Map<String, String> searchMap) {
         //1.获取关键字的值
         String keywords = null;
         if (!CollectionUtils.isEmpty(searchMap)) {
@@ -105,7 +107,7 @@ public class SkuServiceImpl implements SkuService {
         }
 
         //价格区间过滤
-        String price = searchMap.get("price").toString();
+        String price = searchMap.get("price");
         if (!StringUtils.isEmpty(price)) {
             price = price.replace("元", "").replace("以上", "");
             String[] priceArr = price.split("-");
@@ -115,6 +117,12 @@ public class SkuServiceImpl implements SkuService {
                 boolQueryBuilder.filter(QueryBuilders.rangeQuery("price").gte(priceArr[0]));
             }
         }
+
+
+        //分页，用户如果不传分页参数，则默认第一页
+        Integer pageNum = covertPage(searchMap);//默认第一页
+        Integer size = 10;//默认查询数据条数
+        nativeSearchQueryBuilder.withPageable(PageRequest.of(pageNum-1,size));
 
         //将boolQueryBuilder填充给NativeSearchQuery
         nativeSearchQueryBuilder.withFilter(boolQueryBuilder);
@@ -161,6 +169,26 @@ public class SkuServiceImpl implements SkuService {
         //规格查询
         return resultMap;
     }
+
+
+    /**
+     * 接收前端传入的分页参数
+     * @param searchMap
+     * @return
+     */
+    public Integer covertPage(Map<String,String> searchMap){
+        if (!CollectionUtils.isEmpty(searchMap)) {
+            String pageNum = searchMap.get("pageNum");
+            try {
+                return Integer.parseInt(pageNum);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return 1;
+    }
+
 
     /**
      * 分类分组查询

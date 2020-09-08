@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb70928b-7a05-4768-8f1a-fea07f8d5d9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-search/src/main/java/com/changgou/search/service/SkuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-search/src/main/java/com/changgou/search/service/SkuService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-search/src/main/java/com/changgou/search/service/impl/SkuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-search/src/main/java/com/changgou/search/service/impl/SkuServiceImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -248,7 +249,7 @@
       <workItem from="1596764708878" duration="40206000" />
       <workItem from="1597630127864" duration="70115000" />
       <workItem from="1599103230797" duration="15328000" />
-      <workItem from="1599545439257" duration="3296000" />
+      <workItem from="1599545439257" duration="5593000" />
     </task>
     <servers />
   </component>
