@@ -104,6 +104,18 @@ public class SkuServiceImpl implements SkuService {
             }
         }
 
+        //价格区间过滤
+        String price = searchMap.get("price").toString();
+        if (!StringUtils.isEmpty(price)) {
+            price = price.replace("元", "").replace("以上", "");
+            String[] priceArr = price.split("-");
+            if (!priceArr[1].equalsIgnoreCase("*")) {
+                boolQueryBuilder.filter(QueryBuilders.rangeQuery("price").from(priceArr[0], true).to(priceArr[1], true));
+            } else {
+                boolQueryBuilder.filter(QueryBuilders.rangeQuery("price").gte(priceArr[0]));
+            }
+        }
+
         //将boolQueryBuilder填充给NativeSearchQuery
         nativeSearchQueryBuilder.withFilter(boolQueryBuilder);
         NativeSearchQuery query = nativeSearchQueryBuilder.build();
