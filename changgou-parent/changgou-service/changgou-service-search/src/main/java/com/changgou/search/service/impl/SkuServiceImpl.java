@@ -10,6 +10,7 @@ import com.changgou.goods.pojo.Spec;
 import com.changgou.search.dao.SkuEsMapper;
 import com.changgou.search.pojo.SkuInfo;
 import com.changgou.search.service.SkuService;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
@@ -58,12 +59,6 @@ public class SkuServiceImpl implements SkuService {
      */
     @Override
     public Map search(Map<String, Object> searchMap) {
-
-        /**
-         * NativeSearchQueryBuilder：搜索条件构建对象，用于封装各种搜索条件
-         */
-
-
         //1.获取关键字的值
         String keywords = null;
         if (!CollectionUtils.isEmpty(searchMap)) {
@@ -74,13 +69,33 @@ public class SkuServiceImpl implements SkuService {
             }
         }
 
+        /**
+         * NativeSearchQueryBuilder：搜索条件构建对象，用于封装各种搜索条件
+         */
         //2.创建查询对象 的构建对象
         NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
 
+        //BoolQuery must,not_must.should
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+
+
         //3.设置查询的条件
-        nativeSearchQueryBuilder.withQuery(QueryBuilders.queryStringQuery(keywords).field("name"));
+        //nativeSearchQueryBuilder.withQuery(QueryBuilders.queryStringQuery(keywords).field("name"));
+        boolQueryBuilder.must(QueryBuilders.queryStringQuery(keywords).field("name"));
+
+        //输入了分类——》category
+        if (!StringUtils.isEmpty(searchMap.get("category"))) {
+            boolQueryBuilder.must(QueryBuilders.termQuery("categoryName",searchMap.get("category")));
+        }
 
 
+        //输入了品牌->brand
+        if (!StringUtils.isEmpty(searchMap.get("brand"))) {
+            boolQueryBuilder.must(QueryBuilders.termQuery("brandName",searchMap.get("brand")));
+        }
+
+        //将boolQueryBuilder填充给NativeSearchQuery
+        nativeSearchQueryBuilder.withFilter(boolQueryBuilder);
         NativeSearchQuery query = nativeSearchQueryBuilder.build();
         /**
          * 执行搜索，响应结果给我
