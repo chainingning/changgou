@@ -94,6 +94,16 @@ public class SkuServiceImpl implements SkuService {
             boolQueryBuilder.must(QueryBuilders.termQuery("brandName",searchMap.get("brand")));
         }
 
+        //规格过滤实现spec_网络=联通3G&spec_颜色=红
+        if (searchMap != null) {
+            for (String key : searchMap.keySet()) {
+                if (key.startsWith("spec_")) {
+                    //spec_网络，spec_前五个去掉
+                    boolQueryBuilder.filter(QueryBuilders.termQuery("specMap." + key.substring(5) + ".keyword", searchMap.get(key)));
+                }
+            }
+        }
+
         //将boolQueryBuilder填充给NativeSearchQuery
         nativeSearchQueryBuilder.withFilter(boolQueryBuilder);
         NativeSearchQuery query = nativeSearchQueryBuilder.build();
