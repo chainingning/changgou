@@ -15,6 +15,9 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.StringTerms;
+import org.elasticsearch.search.sort.FieldSortBuilder;
+import org.elasticsearch.search.sort.SortBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -124,6 +127,16 @@ public class SkuServiceImpl implements SkuService {
         Integer size = 10;//默认查询数据条数
         nativeSearchQueryBuilder.withPageable(PageRequest.of(pageNum-1,size));
 
+
+
+        //排序
+        String sortField = searchMap.get("sortField");//指定排序的域
+        String sortRule = searchMap.get("sortRule");//指定排序的规则
+        if (!StringUtils.isEmpty(sortField) && !StringUtils.isEmpty(sortRule)) {
+            nativeSearchQueryBuilder.withSort(new FieldSortBuilder(sortField).order(SortOrder.valueOf(sortRule)));
+        }
+
+
         //将boolQueryBuilder填充给NativeSearchQuery
         nativeSearchQueryBuilder.withFilter(boolQueryBuilder);
         NativeSearchQuery query = nativeSearchQueryBuilder.build();
@@ -165,6 +178,9 @@ public class SkuServiceImpl implements SkuService {
             List<String> brandList = searchBrandList(nativeSearchQueryBuilder);
             resultMap.put("brandList", brandList);
         }
+
+
+
 
         //规格查询
         return resultMap;
