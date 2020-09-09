@@ -10,12 +10,16 @@ import com.changgou.goods.pojo.Spec;
 import com.changgou.search.dao.SkuEsMapper;
 import com.changgou.search.pojo.SkuInfo;
 import com.changgou.search.service.SkuService;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.common.text.Text;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.StringTerms;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.elasticsearch.search.sort.FieldSortBuilder;
 import org.elasticsearch.search.sort.SortBuilder;
 import org.elasticsearch.search.sort.SortOrder;
@@ -23,7 +27,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.SearchResultMapper;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.aggregation.impl.AggregatedPageImpl;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
@@ -153,7 +159,7 @@ public class SkuServiceImpl implements SkuService {
         //碎片长度，关键词数据的长度，有默认值
         field.fragmentSize(100);
 
-        nativeSearchQueryBuilder.withHighlightFields();
+        nativeSearchQueryBuilder.withHighlightFields(field);
 
         /**
          * 执行搜索，响应结果给我
@@ -161,10 +167,53 @@ public class SkuServiceImpl implements SkuService {
          * 2.搜索的结果集（集合数据)需要转换的类型
          * 3.AggregatedPage<SkuInfo>:搜索结果集的封装
          */
-        AggregatedPage<SkuInfo> page = elasticsearchTemplate.queryForPage(query, SkuInfo.class);
+        AggregatedPage<SkuInfo> page = elasticsearchTemplate.queryForPage(
+                query,                      //搜索条件封装
+                SkuInfo.class,              //数据结果集要转换的类型的字节码
+                new SearchResultMapper(){   //执行搜索后，将数据结果集封装到该对象种
+
+                    @Override
+                    public <T> AggregatedPage<T> mapResults(SearchResponse response, Class<T> clazz, Pageable pageable) {
+                        //储存所有转换后的高亮数据对象
+                        ArrayList<T> list = new ArrayList<>();
 
 
-        //分析数据
+                        //执行查询，获取所有数据->结果集[非高亮数据|高亮数据]
+                        for (SearchHit hit : response.getHits()) {
+                            //分析结果集，获取非高亮数据
+                            SkuInfo skuInfo = JSON.parseObject(hit.getSourceAsString(), SkuInfo.class);
+
+                            //分析结果集，获取高亮数据->只有某个域的高亮数据
+                            HighlightField highlightField = hit.getHighlightFields().get("name");
+
+                            //非高亮数据中指定的域替换成高亮数据
+                            if (highlightField!=null&&highlightField.getFragments()!=null) {
+                                //高亮数据读取
+                                Text[] fragments = highlightField.getFragments();
+                                StringBuffer buffer = new StringBuffer();
+                                for (Text fragment : fragments) {
+                                    buffer.append(fragment.toString());
+                                }
+                                //非高亮数据中指定的域替换成高亮数据
+                                skuInfo.setName(buffer.toString());
+                            }
+
+                            //将数据返回
+                            list.add((T)skuInfo);
+                        }
+
+                        /**
+                         * 1.搜索的集合数据：携带高亮List<T> content
+                         * 2.分页对象信息：pageable
+                         * 3.搜索记录的总条数:long total
+                         */
+                        return new AggregatedPageImpl<T>(list,pageable,response.getHits().getTotalHits());
+                    }
+                }
+        );
+
+
+
 
         //分页参数-总记录数
         long totalElements = page.getTotalElements();
