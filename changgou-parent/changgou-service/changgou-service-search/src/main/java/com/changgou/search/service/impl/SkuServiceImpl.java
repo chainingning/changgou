@@ -15,6 +15,7 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.StringTerms;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.FieldSortBuilder;
 import org.elasticsearch.search.sort.SortBuilder;
 import org.elasticsearch.search.sort.SortOrder;
@@ -140,6 +141,20 @@ public class SkuServiceImpl implements SkuService {
         //将boolQueryBuilder填充给NativeSearchQuery
         nativeSearchQueryBuilder.withFilter(boolQueryBuilder);
         NativeSearchQuery query = nativeSearchQueryBuilder.build();
+
+
+
+        //添加高亮
+        HighlightBuilder.Field field = new HighlightBuilder.Field("name");//指定高亮域
+        //前缀<em style="color:red">
+        field.preTags("<em style=\"color:red\">");
+        //后缀</em>
+        field.postTags("</em>");
+        //碎片长度，关键词数据的长度，有默认值
+        field.fragmentSize(100);
+
+        nativeSearchQueryBuilder.withHighlightFields();
+
         /**
          * 执行搜索，响应结果给我
          * 1.搜索条件封装对象
