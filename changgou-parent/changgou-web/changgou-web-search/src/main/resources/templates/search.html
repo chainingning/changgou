@@ -678,11 +678,14 @@
 								<div class="price">
 									<strong>
 											<em>¥</em>
-											<i th:text="${item.price}"></i>
+											<i th:utext="${item.price}"></i>
 										</strong>
 								</div>
 								<div class="attr">
-									<a target="_blank" href="item.html"  title="" th:text="${item.name}"></a>
+                                    <!--
+                                    utext:会识别相关的标签
+                                    -->
+									<a target="_blank" href="item.html"  title="" th:utext="${#strings.abbreviate(item.name,45)}"></a>
 								</div>
 								<div class="commit">
 									<i class="command">已有<span>2000</span>人评价</i>
