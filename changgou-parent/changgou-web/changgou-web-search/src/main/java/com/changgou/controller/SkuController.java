@@ -30,6 +30,9 @@ public class SkuController {
         //调用changgou-service-search微服务
         Map search = skuFeign.search(searchMap);
         model.addAttribute("result",search);
+
+        //将条件存储，用于页面条件回显
+        model.addAttribute("searchMap",searchMap);
         return "search";
     }
 }
