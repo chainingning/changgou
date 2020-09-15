@@ -15,6 +15,7 @@
         <module>changgou-eureka</module>
         <module>changgou-common</module>
         <module>changgou-common-db</module>
+        <module>../springboot-thymeleaf</module>
     </modules>
     <packaging>pom</packaging>
     <description>

@@ -19,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-search-api/changgou-service-search-api.iml" filepath="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-search-api/changgou-service-search-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou-parent/changgou-web/changgou-web.iml" filepath="$PROJECT_DIR$/changgou-parent/changgou-web/changgou-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou-parent/code-template-master/code-template.iml" filepath="$PROJECT_DIR$/changgou-parent/code-template-master/code-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-thymeleaf/springboot-thymeleaf.iml" filepath="$PROJECT_DIR$/springboot-thymeleaf/springboot-thymeleaf.iml" />
     </modules>
   </component>
 </project>
