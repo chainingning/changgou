@@ -6,7 +6,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-goods-api/changgou-service-goods-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-goods-api/changgou-service-goods-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-web/changgou-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-web/changgou-web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-web/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,25 +70,25 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="C:/DownLoad/testdemo/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/changgou-parent/changgou-web/changgou-web-search/src/main/resources/templates" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-content-api\src\main\java\com\changgou\feign" />
-      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-content-api\src\main\java\com\changgou" />
-      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service\changgou-service-content\src\main\java\com\changgou" />
-      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-goods-api\src\main\java\com\changgou\goods\pojo" />
-      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service\changgou-service-goods\src\main\java\com\changgou" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.changgou.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.changgou.dao" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.changgou.service" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-web\changgou-web-search\src\main\resources\templates" />
+      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-web\changgou-web-search\src\main\resources\static" />
+      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-content-api\src\main\java\com\changgou\feign" />
+      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-content-api\src\main\java\com\changgou" />
+      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service\changgou-service-content\src\main\java\com\changgou" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -256,7 +258,7 @@
       <workItem from="1599545439257" duration="15868000" />
       <workItem from="1599719412667" duration="2341000" />
       <workItem from="1599728221965" duration="138000" />
-      <workItem from="1600134346389" duration="2273000" />
+      <workItem from="1600134346389" duration="7173000" />
     </task>
     <servers />
   </component>

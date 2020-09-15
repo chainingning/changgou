@@ -10,6 +10,7 @@
         <module name="changgou-eureka" />
         <module name="changgou-service-goods-api" />
         <module name="springboot-thymeleaf" />
+        <module name="changgou-web-search" />
         <module name="changgou-common-db" />
         <module name="code-template" />
         <module name="changgou-service-search" />
@@ -37,6 +38,7 @@
       <module name="changgou-service-search" target="1.8" />
       <module name="changgou-service-search-api" target="1.8" />
       <module name="changgou-web" target="1.8" />
+      <module name="changgou-web-search" target="1.8" />
       <module name="code-template" target="1.5" />
       <module name="springboot-thymeleaf" target="1.8" />
     </bytecodeTargetLevel>
@@ -59,6 +61,7 @@
       <module name="changgou-service-search" options="-parameters" />
       <module name="changgou-service-search-api" options="-parameters" />
       <module name="changgou-web" options="-parameters" />
+      <module name="changgou-web-search" options="-parameters" />
       <module name="springboot-thymeleaf" options="-parameters" />
     </option>
   </component>
