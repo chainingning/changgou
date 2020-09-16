@@ -494,7 +494,7 @@
                     </div>
 					<div class="fl ext"></div>
 				</div>
-				<div class="type-wrap logo">
+				<div class="type-wrap logo" th:unless="${#maps.containsKey(searchMap,'brand')}">
 					<div class="fl key brand">品牌</div>
 					<div class="value logos">
 						<ul class="logo-list" th:each="brand:${result.brandList}">
@@ -508,7 +508,11 @@
 						<a href="javascript:void(0);">更多</a>
 					</div>
 				</div>
-				<div class="type-wrap" th:each="spec:${result.specList}">
+                <!--
+                    当用户没有搜索该规格的时候，才显示
+                    用户搜索了该规格，则不显示该规格
+                -->
+				<div class="type-wrap" th:each="spec:${result.specList}" th:unless="${searchMap,'spec_'+spec.key}">
 					<div class="fl key" th:text="${spec.key}">网络制式</div>
 					<div class="fl value">
 						<ul class="type-list">
