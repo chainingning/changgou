@@ -470,23 +470,23 @@
 					</li>
 					<li class="active" th:if="${#maps.containsKey(searchMap,'category')}">
                         <em th:text="${searchMap.category}"></em>
-                        <a>x</a>
+                        <a th:href="@{${#strings.replace(url,'category='+searchMap.category,'')}}">x</a>
                     </li>
 				</ul>
 				<ul class="fl sui-tag" >
 					<li class="with-x" th:if="${#maps.containsKey(searchMap,'brand')}">
                         <em th:text="${searchMap.brand}"></em>
-                        <a>×</a>
+                        <a th:href="@{${#strings.replace(url,'brand='+searchMap.brand,'')}}">×</a>
                     </li>
                     <li class="with-x" th:if="${#maps.containsKey(searchMap,'price')}">
                         <em th:text="${searchMap.price}"></em>
-                        <a>×</a>
+                        <a th:href="@{${#strings.replace(url,'price='+searchMap.price,'')}}">×</a>
                     </li>
                     <li class="with-x" th:each="spec:${searchMap}" th:if="${#strings.startsWith(spec.key,'spec_')}">
                         <em th:text="${#strings.replace(spec.key,'sepc_','')}">:
                             <span th:text="${spec.value}"></span>
                         </em>
-                        <a>×</a>
+                        <a th:href="@{${#strings.replace(url,spec.key+'='+spec.value,'')}}">×</a>
                     </li>
 
 				</ul>
