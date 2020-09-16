@@ -488,7 +488,10 @@
                     <div class="fl key">分类</div>
 					<div class="fl value">
                         <span th:each="category,categoryStat:${result.categoryList}">
-                            <a th:text="${category}"></a>
+                            <!--
+                                每次点击分类，在上次请求的url基础上添加category=点击的分类
+                            -->
+                            <a th:href="@{${url}(category=${category})}" th:text="${category}"></a>
                             <em th:unless="${categoryStat.last}">、</em>
                         </span>
                     </div>
@@ -499,7 +502,7 @@
 					<div class="value logos">
 						<ul class="logo-list" th:each="brand:${result.brandList}">
 							<li>
-                                <a th:text="${brand}"></a>
+                                <a th:href="@{${url}(brand=${brand})}" th:text="${brand}"></a>
                             </li>
 						</ul>
 					</div>
@@ -517,7 +520,7 @@
 					<div class="fl value">
 						<ul class="type-list">
 							<li th:each="opt:${spec.value}">
-								<a th:text="${opt}"></a>
+								<a th:href="@{${url}('spec_'+${spec.key}=${opt})}" th:text="${opt}"></a>
 							</li>
 						</ul>
 					</div>
@@ -531,7 +534,7 @@
 					<div class="fl value">
 						<ul class="type-list">
 							<li>
-								<a>0-500元</a>
+								<a th:href="@{${url}(price='0-500')}">0-500元</a>
 							</li>
 							<li>
 								<a>500-1000元</a>

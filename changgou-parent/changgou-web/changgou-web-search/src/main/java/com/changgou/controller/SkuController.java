@@ -35,4 +35,15 @@ public class SkuController {
         model.addAttribute("searchMap",searchMap);
         return "search";
     }
+
+    /**
+     * 拼接组装用户请求的地址
+     * 获取用户每次请求的地址
+     * 页面需要在这次请求的地址上面添加额外的搜索条件
+     */
+    public String url(Map<String,String> searchMap){
+        String url = "/search/list";
+        return  "";
+    }
+
 }
