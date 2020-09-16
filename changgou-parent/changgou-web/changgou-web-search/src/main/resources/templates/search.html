@@ -468,12 +468,27 @@
 					<li>
 						<a href="#">全部结果</a>
 					</li>
-					<li class="active">智能手机</li>
+					<li class="active" th:if="${#maps.containsKey(searchMap,'category')}">
+                        <em th:text="${searchMap.category}"></em>
+                        <a>x</a>
+                    </li>
 				</ul>
-				<ul class="fl sui-tag">
-					<li class="with-x">iphone<i>×</i></li>
-					<li class="with-x">华为<i>×</i></li>
-					<li class="with-x">OPPO<i>×</i></li>
+				<ul class="fl sui-tag" >
+					<li class="with-x" th:if="${#maps.containsKey(searchMap,'brand')}">
+                        <em th:text="${searchMap.brand}"></em>
+                        <a>×</a>
+                    </li>
+                    <li class="with-x" th:if="${#maps.containsKey(searchMap,'price')}">
+                        <em th:text="${searchMap.price}"></em>
+                        <a>×</a>
+                    </li>
+                    <li class="with-x" th:each="spec:${searchMap}" th:if="${#strings.startsWith(spec.key,'spec_')}">
+                        <em th:text="${#strings.replace(spec.key,'sepc_','')}">:
+                            <span th:text="${spec.value}"></span>
+                        </em>
+                        <a>×</a>
+                    </li>
+
 				</ul>
 				<form class="fl sui-form form-dark">
 					<div class="input-control control-right">
