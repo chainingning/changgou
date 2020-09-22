@@ -19,9 +19,18 @@ spring:
           uri: http://localhost:18081
           #路由规则配置
           predicates:
-            #用户请求的域名规则配置
-            #- Host=www.changgou.com**
-            - Path:/brand/**
+          #用户请求的域名规则配置
+          #- Host=www.changgou.com**
+          #所有以/brand开始的请求，都路由http://localhost:18081微服务
+          #- Path:/api/brand/**
+          - Path:/**
+          #所有以/api/brand的请求，都被路由http://localhost:18081微服务
+          #希望该路径由微服务网关自动添加上/api前缀，每次请求真实微服务网关的时候，需要使用微服务网关将/api去掉
+          filters:
+          #将请求路径(配置中的Path)中的第一个路径去掉，请求路径以/区分，一个/代表一个路径
+          #- StripPrefix=1
+          #用户请求/**->/brand/**，并且将该请求路由到http://localhost:18081微服务
+          - PrefixPath=/brand
 server:
   port: 8001
 eureka:
