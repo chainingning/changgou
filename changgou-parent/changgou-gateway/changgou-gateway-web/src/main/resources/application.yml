@@ -12,6 +12,16 @@ spring:
               - POST
               - PUT
               - DELETE
+      routes:
+        #唯一标识符
+        - id: changgou_goods_route
+          #用户请求需要路由到该服务[指定要路由的服务]
+          uri: http://localhost:18081
+          #路由规则配置
+          predicates:
+            #用户请求的域名规则配置
+            #- Host=www.changgou.com**
+            - Path:/brand/**
 server:
   port: 8001
 eureka:
