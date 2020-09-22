@@ -16,7 +16,9 @@ spring:
         #唯一标识符
         - id: changgou_goods_route
           #用户请求需要路由到该服务[指定要路由的服务]
-          uri: http://localhost:18081
+         # uri: http://localhost:18081
+          #lb使用LoadBalancerClient 路由过滤器(客户端负载均衡)，后面goods是微服务的名称[主要应用于集群环境]
+          uri: lb://goods
           #路由规则配置
           predicates:
           #用户请求的域名规则配置
