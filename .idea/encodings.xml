@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/changgou-parent/changgou-common-db" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou-parent/changgou-eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou-parent/changgou-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou-parent/changgou-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou-parent/changgou-service-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-content-api" charset="UTF-8" />

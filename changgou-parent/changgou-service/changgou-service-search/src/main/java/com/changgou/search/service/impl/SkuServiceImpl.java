@@ -228,6 +228,9 @@ public class SkuServiceImpl implements SkuService {
         resultMap.put("rows", contents);
         resultMap.put("total", totalElements);
         resultMap.put("totalPages", totalPages);
+        resultMap.put("pageNum", pageNum);
+        resultMap.put("pageSize", 30);
+
 
         //分类分组查询实现
         //当用户选择了分类，将分类作为搜索条件，则不需要对分类进行分组搜索，因为分组搜索的数据是用于显示分类搜索条件的
@@ -243,10 +246,13 @@ public class SkuServiceImpl implements SkuService {
             resultMap.put("brandList", brandList);
         }
 
-
-
-
         //规格查询
+        if (searchMap == null || StringUtils.isEmpty(searchMap.get("spec"))) {
+            List<String> specList = searchSpecList(nativeSearchQueryBuilder);
+            resultMap.put("specList", specList);
+        }
+
+
         return resultMap;
     }
 

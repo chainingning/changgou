@@ -614,8 +614,11 @@
 								<a href="#">评价</a>
 							</li>
 							<li>
-								<a href="#">价格</a>
+								<a th:href="@{${url}(sortField=price,sortRule=ASC)}">价格↑</a>
 							</li>
+                            <li>
+                                <a th:href="@{${url}(sortField=price,sortRule=DESC)}">价格↓</a>
+                            </li>
 						</ul>
 					</div>
 				</div>
@@ -652,30 +655,21 @@
 				</div>
 				<div class="fr page">
 					<div class="sui-pagination pagination-large">
-						<ul>
-							<li class="prev disabled">
-								<a href="#">«上一页</a>
-							</li>
-							<li class="active">
-								<a href="#">1</a>
-							</li>
-							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">3</a>
-							</li>
-							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li class="dotted"><span>...</span></li>
-							<li class="next">
-								<a href="#">下一页»</a>
-							</li>
-						</ul>
+                        <ul>
+                            <li class="prev disabled">
+                                <a href="#" th:href="@{${url}(pageNum=${page.upper})}">«</a>
+                            </li>
+                            <!--active-->
+                            <!--[1,2,3,4,5]-->
+                            <li th:class="${page.currentpage}==${i}?'active':''" th:each="i:${#numbers.sequence(page.lpage,page.rpage)}">
+                                <a href="#" th:href="@{${url}(pageNum=${i})}" th:text="${i}">1</a>
+                            </li>
+
+                            <li class="dotted"><span>...</span></li>
+                            <li class="next">
+                                <a href="#" th:href="@{${url}(pageNum=${page.next})}">下一页»</a>
+                            </li>
+                        </ul>
 						<div><span>共10页&nbsp;</span><span>
       到第
       <input type="text" class="page-num">
