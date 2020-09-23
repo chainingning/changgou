@@ -20,7 +20,7 @@ spring:
           predicates:
           #- Host=www.changgou.com** #用户请求的域名规则配置
           #- Path:/api/brand/** #所有以/brand开始的请求，都路由http://localhost:18081微服务
-          - Path:/**
+          - Path:/api/goods/**
           #所有以/api/brand的请求，都被路由http://localhost:18081微服务
           #希望该路径由微服务网关自动添加上/api前缀，每次请求真实微服务网关的时候，需要使用微服务网关将/api去掉
           filters:
@@ -31,6 +31,12 @@ spring:
               key-resolver: "#{@ipKeyResolver}" #用户身份唯一识别符，启动类中Bean注解的名称
               redis-rate-limiter.replenishRate: 1 #每秒钟只允许有1个1请求
               redis-rate-limiter.burstCapacity: 4 #允许并发有4个请求[宽限的个数]
+        - id: changgou_user_route #唯一标识符
+          uri: lb://user
+          predicates:
+          - Path:/api/address/**,/api/areas/**,/api/cities/**,/api/user/**,/api/provinces/**
+          filters:
+          - StripPrefix=1
 server:
   port: 8001
 eureka:
