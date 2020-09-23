@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb70928b-7a05-4768-8f1a-fea07f8d5d9c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway-web/changgou-gateway-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway-web/changgou-gateway-web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway-web/src/main/java/com/changgou/GatewayWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway-web/src/main/java/com/changgou/GatewayWebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway-web/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-gateway/changgou-gateway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +69,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/changgou-parent/changgou-web/changgou-web-search/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-user/src/main/java/com/changgou/user" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -83,11 +83,11 @@
       <recent name="com.changgou.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service\changgou-service-user\src\main\java\com\changgou\user" />
+      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-user-api\src\main\java\com\changgou\user\pojo" />
       <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-web\changgou-web-search\src\main\resources\templates" />
       <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-web\changgou-web-search\src\main\resources\static" />
       <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-content-api\src\main\java\com\changgou\feign" />
-      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service-api\changgou-service-content-api\src\main\java\com\changgou" />
-      <recent name="D:\projectWorkspace\idea\changgou\changgou-parent\changgou-service\changgou-service-content\src\main\java\com\changgou" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -257,7 +257,7 @@
       <workItem from="1599545439257" duration="15868000" />
       <workItem from="1599719412667" duration="2341000" />
       <workItem from="1599728221965" duration="138000" />
-      <workItem from="1600134346389" duration="45295000" />
+      <workItem from="1600134346389" duration="46228000" />
     </task>
     <servers />
   </component>
