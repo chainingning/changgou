@@ -13,26 +13,24 @@ spring:
               - PUT
               - DELETE
       routes:
-        #唯一标识符
-        - id: changgou_goods_route
-          #用户请求需要路由到该服务[指定要路由的服务]
-         # uri: http://localhost:18081
-          #lb使用LoadBalancerClient 路由过滤器(客户端负载均衡)，后面goods是微服务的名称[主要应用于集群环境]
-          uri: lb://goods
+        - id: changgou_goods_route #唯一标识符
+          #uri: http://localhost:18081 #用户请求需要路由到该服务[指定要路由的服务]
+          uri: lb://goods #lb使用LoadBalancerClient 路由过滤器(客户端负载均衡)，后面goods是微服务的名称[主要应用于集群环境]
           #路由规则配置
           predicates:
-          #用户请求的域名规则配置
-          #- Host=www.changgou.com**
-          #所有以/brand开始的请求，都路由http://localhost:18081微服务
-          #- Path:/api/brand/**
+          #- Host=www.changgou.com** #用户请求的域名规则配置
+          #- Path:/api/brand/** #所有以/brand开始的请求，都路由http://localhost:18081微服务
           - Path:/**
           #所有以/api/brand的请求，都被路由http://localhost:18081微服务
           #希望该路径由微服务网关自动添加上/api前缀，每次请求真实微服务网关的时候，需要使用微服务网关将/api去掉
           filters:
-          #将请求路径(配置中的Path)中的第一个路径去掉，请求路径以/区分，一个/代表一个路径
-          #- StripPrefix=1
-          #用户请求/**->/brand/**，并且将该请求路由到http://localhost:18081微服务
-          - PrefixPath=/brand
+          - StripPrefix=1 #将请求路径(配置中的Path)中的第一个路径去掉，请求路径以/区分，一个/代表一个路径
+          #- PrefixPath=/brand #用户请求/**->/brand/**，并且将该请求路由到http://localhost:18081微服务
+          - name: RequestRateLimiter #局部限流过滤器，请求数限流 名字不能随便写 ，使用默认的facatory
+            args:
+              key-resolver: "#{@ipKeyResolver}" #用户身份唯一识别符，启动类中Bean注解的名称
+              redis-rate-limiter.replenishRate: 1 #每秒钟只允许有1个1请求
+              redis-rate-limiter.burstCapacity: 4 #允许并发有4个请求[宽限的个数]
 server:
   port: 8001
 eureka:
