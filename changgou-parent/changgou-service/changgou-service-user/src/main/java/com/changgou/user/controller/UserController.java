@@ -1,6 +1,4 @@
 package com.changgou.user.controller;
-
-import com.alibaba.fastjson.JSON;
 import com.changgou.entity.BCrypt;
 import com.changgou.entity.Result;
 import com.changgou.entity.StatusCode;
@@ -9,14 +7,8 @@ import com.changgou.user.service.UserService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+
 
 /****
  * @Author:admin
@@ -31,6 +23,22 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+
+
+    @GetMapping(value = "/login")
+    public Result login(String username,String password){
+        //查询用户信息
+        User user = userService.findById(username);
+
+        //对比密码
+        if (BCrypt.checkpw(password,user.getPassword())) {
+            //密码匹配，登录成功
+            return new Result(true,StatusCode.OK,"登录成功",user);
+        }
+
+        return new Result(false,StatusCode.LOGINERROR,"账号或密码有误");
+    }
 
     /***
      * User分页条件搜索实现
@@ -133,43 +141,4 @@ public class UserController {
         return new Result<List<User>>(true, StatusCode.OK, "查询成功", list);
     }
 
-    @RequestMapping("/login")
-    public Result<User> login(String username, String password, HttpServletResponse response, HttpServletRequest request) {
-        //1.从数据库中查询用户名对应的用户的对象
-        User user = userService.findById(username);
-        if (user == null) {
-            //2.判断用户是否为空 为空返回数据
-            return new Result<User>(false, StatusCode.LOGINERROR, "用户名或密码错误");
-        }
-
-        //3如果不为空格 判断 密码是否正确 正确则登录成功
-
-        if(BCrypt.checkpw(password,user.getPassword())){
-            //成功
-            Map<String,Object> info = new HashMap<String,Object>();
-            info.put("role","USER");
-            info.put("success","SUCCESS");
-            info.put("username",username);
-
-            //1.生成令牌
-//            String jwt = JwtUtil.createJWT(UUID.randomUUID().toString(), JSON.toJSONString(info), null);
-            String jwt = "JwtUtil.createJWT(UUID.randomUUID().toString(), JSON.toJSONString(info), null)";
-            //2.设置cookie中
-            Cookie cookie = new Cookie("Authorization",jwt);
-            response.addCookie(cookie);
-            //3.设置头文件中
-            response.setHeader("Authorization",jwt);
-
-            return new Result<User>(true, StatusCode.OK, "成功",jwt);
-        }else{
-            //失败
-            return new Result<User>(false, StatusCode.LOGINERROR, "用户名或密码错误");
-        }
-
-
-
-
-
-
-    }
 }
