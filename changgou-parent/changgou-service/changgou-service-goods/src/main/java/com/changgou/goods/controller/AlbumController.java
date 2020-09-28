@@ -38,6 +38,9 @@ public class AlbumController {
         return new Result(true, StatusCode.OK,"查询成功",pageInfo);
     }
 
+
+
+
     /***
      * Album分页搜索实现
      * @param page:当前页
