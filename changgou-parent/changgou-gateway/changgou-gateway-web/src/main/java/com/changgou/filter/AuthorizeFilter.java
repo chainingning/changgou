@@ -38,11 +38,16 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         //获取用户令牌信息
         //1）.头文件
         String token = request.getHeaders().getFirst(AUTHORIZE_TOKEN);
+        //boolean true：令牌在头文件中  false：令牌不在头文件中-》将令牌封装到头文件中，再传递给其他微服务
+
+        boolean hasToken = true;
 
         //2）.参数
         if (StringUtils.isEmpty(token)) {
             token = request.getQueryParams().getFirst(AUTHORIZE_TOKEN);
+            hasToken = false;
         }
+
         //3）.Cookie
         if (StringUtils.isEmpty(token)) {
             HttpCookie tokenCookie = request.getCookies().getFirst(AUTHORIZE_TOKEN);
@@ -71,6 +76,9 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             return response.setComplete();
         }
 
+
+        //将令牌封装到头文件中
+        request.mutate().header(AUTHORIZE_TOKEN,token);
 
         //有效放行
         return chain.filter(exchange);
