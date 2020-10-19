@@ -6,7 +6,7 @@ import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.jwt.crypto.sign.RsaVerifier;
 
 /*****
- * @Author: www.itheima
+ * @Author:
  * @Date: 2019/7/7 13:48
  * @Description: com.changgou.token
  *  使用公钥解密令牌数据

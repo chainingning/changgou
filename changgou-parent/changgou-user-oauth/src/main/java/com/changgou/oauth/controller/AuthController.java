@@ -1,10 +1,10 @@
 package com.changgou.oauth.controller;
 
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import com.changgou.oauth.service.AuthService;
 import com.changgou.oauth.util.AuthToken;
 import com.changgou.oauth.util.CookieUtil;
-import entity.Result;
-import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.StringUtils;

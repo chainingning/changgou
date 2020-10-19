@@ -54,6 +54,8 @@ public class UserController {
             cookie.setPath("/");
             response.addCookie(cookie);
 
+
+
             //密码匹配，把令牌作为参数传给用户,登录成功
             return new Result(true,StatusCode.OK,"登录成功",token);
         }

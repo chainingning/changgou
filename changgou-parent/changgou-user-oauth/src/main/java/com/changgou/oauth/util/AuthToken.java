@@ -3,7 +3,7 @@ package com.changgou.oauth.util;
 import java.io.Serializable;
 
 /****
- * @Author:www.itheima
+ * @Author:
  * @Date:2019/5/18 14:52
  * @Description:用户令牌封装
  *****/

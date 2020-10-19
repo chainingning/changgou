@@ -1,10 +1,11 @@
 package com.changgou.oauth.controller;
 
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import com.changgou.oauth.service.LoginService;
 import com.changgou.oauth.util.AuthToken;
 import com.changgou.oauth.util.CookieUtil;
-import entity.Result;
-import entity.StatusCode;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ import java.util.Map;
 /**
  * 描述
  *
- * @author www.itheima.com
+ * @author
  * @version 1.0
  * @package com.changgou.oauth.controller *
  * @since 1.0
