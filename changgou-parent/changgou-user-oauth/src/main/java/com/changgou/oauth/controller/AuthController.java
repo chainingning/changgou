@@ -17,7 +17,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletResponse;
 
 /*****
- * @Author: www.itheima
+ * @Author:
  * @Date: 2019/7/7 16:42
  * @Description: com.changgou.oauth.controller
  ****/

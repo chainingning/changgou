@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /*****
- * @Author: www.itheima
+ * @Author:
  * @Date: 2019/7/6 8:01
  * @Description: com.changgou
  ****/

@@ -60,14 +60,17 @@ public class UserLoginController {
         //登录 之后生成令牌的数据返回
         AuthToken authToken = loginService.login(username, password, clientId, clientSecret, GRAND_TYPE);
 
+        if (authToken != null) {
+            //设置到cookie中
+            saveCookie(authToken.getAccessToken());
+            return new Result<>(true, StatusCode.OK, "令牌生成成功", authToken);
+        }
+        return new Result<>(false, StatusCode.LOGINERROR, "登录失败");
 
-        //设置到cookie中
-        saveCookie(authToken.getAccessToken());
-        return new Result<>(true, StatusCode.OK,"令牌生成成功",authToken);
     }
 
-    private void saveCookie(String token){
+    private void saveCookie(String token) {
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
-        CookieUtil.addCookie(response,cookieDomain,"/","Authorization",token,cookieMaxAge,false);
+        CookieUtil.addCookie(response, cookieDomain, "/", "Authorization", token, cookieMaxAge, false);
     }
 }
