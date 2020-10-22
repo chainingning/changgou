@@ -8,6 +8,7 @@ import com.changgou.user.pojo.User;
 import com.changgou.user.service.UserService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -155,8 +156,10 @@ public class UserController {
 
     /***
      * 查询User全部数据
+     * 只允许管理员admin角色访问，其他的角色无法访问
      * @return
      */
+    @PreAuthorize("hasAnyRole('admin')")
     @GetMapping
     public Result<List<User>> findAll() {
         //调用UserService实现查询所有User
