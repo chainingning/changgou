@@ -1,6 +1,5 @@
 package com.changgou.filter;
 
-import com.changgou.utils.JwtUtil;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -26,6 +25,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
 
     /**
      * 全局拦截
+     *
      * @param exchange
      * @param chain
      * @return
@@ -51,7 +51,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         //3）.Cookie
         if (StringUtils.isEmpty(token)) {
             HttpCookie tokenCookie = request.getCookies().getFirst(AUTHORIZE_TOKEN);
-            if (tokenCookie!=null){
+            if (tokenCookie != null) {
                 token = tokenCookie.getValue();
             }
         }
@@ -65,11 +65,9 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             return response.setComplete();
         }
 
-
+        //令牌判断是否为空，如果不为空，将令牌放到头文件中，放行
         //如果有令牌，校验令牌是否有效
-        try {
-            JwtUtil.parseJWT(token);
-        } catch (Exception e) {
+        if (StringUtils.isEmpty(token)) {
             //无效拦截
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             //响应空数据
@@ -77,8 +75,15 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         }
 
 
-        //将令牌封装到头文件中
-        request.mutate().header(AUTHORIZE_TOKEN,token);
+        //如果请求头中没有，加入
+        if (!hasToken) {
+            //用户token里可能没有前缀 bearer
+            if (!token.startsWith("bearer ") && !token.startsWith("Bearer ")) {
+                token = "bearer " + token;
+            }
+            //将令牌封装到头文件中
+            request.mutate().header(AUTHORIZE_TOKEN, token);
+        }
 
         //有效放行
         return chain.filter(exchange);
@@ -87,6 +92,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
 
     /**
      * 排序
+     *
      * @return
      */
     @Override
