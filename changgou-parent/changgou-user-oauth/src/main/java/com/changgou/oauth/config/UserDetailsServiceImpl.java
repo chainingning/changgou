@@ -36,21 +36,32 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        //=================================客户端信息认证 start==========================================
         //取出身份，如果身份为空说明没有认证
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         //没有认证统一采用httpbasic认证，httpbasic中存储了client_id和client_secret，开始认证client_id和client_secret
         if(authentication==null){
+            //查询数据库，changgou_oauth的oauth_client_details表
             ClientDetails clientDetails = clientDetailsService.loadClientByClientId(username);
             if(clientDetails!=null){
                 //秘钥
                 String clientSecret = clientDetails.getClientSecret();
                 //静态方式
-                return new User(username,new BCryptPasswordEncoder().encode(clientSecret), AuthorityUtils.commaSeparatedStringToAuthorityList(""));
+//                return new User(
+//                        username,//客户端id
+//                        new BCryptPasswordEncoder().encode(clientSecret),//客户端密钥-》加密操作
+//                        AuthorityUtils.commaSeparatedStringToAuthorityList(""));//权限
                 //数据库查找方式
-                //return new User(username,clientSecret, AuthorityUtils.commaSeparatedStringToAuthorityList(""));
+                return new User(
+                        username, //客户端id
+                        clientSecret, //客户端密钥(数据库已加密)
+                        AuthorityUtils.commaSeparatedStringToAuthorityList(""));
             }
         }
 
+        //=================================客户端信息认证 end==========================================
+
+        //=================================用户账号密码信息认证 start==========================================
         if (StringUtils.isEmpty(username)) {
             return null;
         }
@@ -62,7 +73,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
         UserJwt userDetails = new UserJwt(username,pwd,AuthorityUtils.commaSeparatedStringToAuthorityList(permissions));
-
+        //=================================用户账号密码信息认证 end==========================================
 
         //userDetails.setComy(songsi);
         return userDetails;
