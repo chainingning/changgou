@@ -1,5 +1,7 @@
 package com.changgou.oauth.config;
+import com.changgou.entity.Result;
 import com.changgou.oauth.util.UserJwt;
+import com.changgou.user.feign.UserFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,6 +29,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     ClientDetailsService clientDetailsService;
+
+
+    @Autowired
+    private UserFeign userFeign;
 
     /****
      * 自定义授权认证
@@ -66,8 +72,20 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             return null;
         }
 
+
+        //从数据库查询加载用户信息
+        Result<com.changgou.user.pojo.User> userResult = userFeign.findById(username);
+
+        //客户端id：changgou
+        //客户端密钥：changgou
+        //普通账号-》账号：任意账号   密码：changgou
+
+        if (userResult == null || userResult.getData()==null) {
+            return null;
+        }
+
         //根据用户名查询用户信息
-        String pwd = new BCryptPasswordEncoder().encode("szitheima");
+        String pwd = new BCryptPasswordEncoder().encode(userResult.getData().getPassword());
         //创建User对象
         String permissions = "goods_list,seckill_list"; //指定用户的角色信息
 

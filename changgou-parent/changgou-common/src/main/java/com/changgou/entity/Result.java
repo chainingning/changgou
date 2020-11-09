@@ -3,9 +3,9 @@ package com.changgou.entity;
 import java.io.Serializable;
 
 /**
- * 描述
+ * 统一返回格式
  *
- * @author 三国的包子
+ * @author chaining
  * @version 1.0
  * @package entity *
  * @since 1.0
