@@ -16,6 +16,7 @@
         <module>changgou-service-content-api</module>
         <module>changgou-service-search-api</module>
         <module>changgou-service-user-api</module>
+        <module>changgou-service-order-api</module>
     </modules>
     <description>
         所有微服务工程的API抽取（JavaBean|Feign)
