@@ -3,30 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="eb70928b-7a05-4768-8f1a-fea07f8d5d9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-goods-api/src/main/java/com/changgou/goods/feign/SkuFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-goods-api/src/main/java/com/changgou/goods/feign/SkuFeign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/changgou-service-order.iml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/changgou-service-order.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/controller/ContentCategoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/controller/ContentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/dao/ContentCategoryMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/dao/ContentMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/feign/ContentCategoryFeign.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/feign/ContentFeign.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/pojo/Content.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/pojo/ContentCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/service/ContentCategoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/service/ContentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/service/impl/ContentCategoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/content/service/impl/ContentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/swagger/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/java/com/changgou/swagger/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/template/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/template/dao/Mapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/template/feign/Feign.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/template/pojo/Pojo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/template/service/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/template/service/impl/ServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/src/main/resources/template/swagger/swagger.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/code-template-master/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -295,7 +275,7 @@
       <workItem from="1603245079555" duration="18231000" />
       <workItem from="1603422255364" duration="2365000" />
       <workItem from="1603789303143" duration="188000" />
-      <workItem from="1604887139760" duration="10632000" />
+      <workItem from="1604887139760" duration="14051000" />
     </task>
     <servers />
   </component>
