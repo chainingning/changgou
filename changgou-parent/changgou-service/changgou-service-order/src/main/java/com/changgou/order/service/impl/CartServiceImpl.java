@@ -10,6 +10,8 @@ import com.changgou.order.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.util.List;
+
 /**
  * @ClassName CartServiceImpl
  * @Description:
@@ -70,5 +72,11 @@ public class CartServiceImpl implements CartService {
             redisTemplate.boundHashOps("Cart_"+username).put(id,orderItem);// hset key field value   hget key field
         }
 
+    }
+
+    @Override
+    public List<OrderItem> list(String username) {
+        //从redis中查询
+        return redisTemplate.boundHashOps("Cart_" + username).values();
     }
 }

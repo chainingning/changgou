@@ -1,6 +1,5 @@
 package com.changgou.oauth.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.changgou.oauth.service.AuthService;
 import com.changgou.oauth.util.AuthToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /*****
- * @Author: www.itheima
+ * @Author: chaining
  * @Date: 2019/7/7 16:23
  * @Description: com.changgou.oauth.service.impl
  ****/

@@ -2,11 +2,14 @@ package com.changgou.order.controller;
 
 import com.changgou.entity.Result;
 import com.changgou.entity.StatusCode;
+import com.changgou.order.pojo.OrderItem;
 import com.changgou.order.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @ClassName CartController
@@ -21,6 +24,14 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+    @GetMapping("/list")
+    public Result<List<OrderItem>> list(){
+        //获取登录用户名
+        String username = "changgou";
+        List<OrderItem> list = cartService.list(username);
+        return new Result<List<OrderItem>>(true,StatusCode.OK,"购物车列表查询成功",list);
+    }
 
 
     @GetMapping(value = "/add")

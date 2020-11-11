@@ -1,5 +1,9 @@
 package com.changgou.order.service;
 
+import com.changgou.order.pojo.OrderItem;
+
+import java.util.List;
+
 /**
  * @ClassName CartService
  * @Description:
@@ -15,4 +19,7 @@ public interface CartService {
      * @param username  购买的商品的用户名
      */
     void add(Long id, Integer num, String username);
+
+
+    List<OrderItem> list(String username);
 }
