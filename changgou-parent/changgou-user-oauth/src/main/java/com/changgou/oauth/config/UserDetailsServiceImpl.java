@@ -78,7 +78,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
          * 1.没有令牌，Feign调用之前，生成令牌(admin)
          * 2.Feign调用之前，令牌需要携带过去
          * 3.Feign调用之前，令牌需要存放到header文件中
-         * 4.请求-》Feign调用-》requestInterceptor->Feign调用之前拦截
+         * 4.请求-》Feign调用-》RequestInterceptor->Feign调用之前拦截
          */
         Result<com.changgou.user.pojo.User> userResult = userFeign.findById(username);
 

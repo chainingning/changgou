@@ -3,11 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="eb70928b-7a05-4768-8f1a-fea07f8d5d9c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/java/com/changgou/order/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/java/com/changgou/order/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/java/com/changgou/order/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/java/com/changgou/order/service/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/java/com/changgou/order/service/impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-order/src/main/java/com/changgou/order/service/impl/CartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-order-api/src/main/java/com/changgou/order/pojo/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service-api/changgou-service-order-api/src/main/java/com/changgou/order/pojo/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-user/src/main/java/com/changgou/user/config/ResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-service/changgou-service-user/src/main/java/com/changgou/user/config/ResourceServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/src/main/java/com/changgou/oauth/config/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/src/main/java/com/changgou/oauth/config/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/src/main/java/com/changgou/oauth/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/src/main/java/com/changgou/oauth/service/impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/src/test/java/com/changgou/token/CreateJwtTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/src/test/java/com/changgou/token/CreateJwtTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/OAuthApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/OAuthApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/config/AuthorizationServerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/config/AuthorizationServerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/config/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/config/UserDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/controller/UserLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/controller/UserLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/service/impl/AuthServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/service/impl/AuthServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/service/impl/AuthServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/service/impl/AuthServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/service/impl/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/changgou-parent/changgou-user-oauth/target/classes/com/changgou/oauth/service/impl/LoginServiceImpl.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +115,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CodeApplication">
+  <component name="RunManager" selected="JUnit.CreateJwtTest.testCreateToken">
     <configuration name="CodeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.itheima.CodeApplication" />
       <module name="code-template" />
@@ -185,16 +191,16 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.CodeApplication" />
       <item itemvalue="JUnit.JwtTest.testCreateToken" />
       <item itemvalue="JUnit.JwtTest.testParseJwt" />
       <item itemvalue="JUnit.CreateJwtTest.testCreateToken" />
       <item itemvalue="Spring Boot.SearchApplication" />
-      <item itemvalue="Application.CodeApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CodeApplication" />
         <item itemvalue="JUnit.CreateJwtTest.testCreateToken" />
+        <item itemvalue="Application.CodeApplication" />
         <item itemvalue="JUnit.JwtTest.testCreateToken" />
         <item itemvalue="JUnit.JwtTest.testParseJwt" />
         <item itemvalue="Spring Boot.SearchApplication" />
@@ -276,7 +282,9 @@
       <workItem from="1603245079555" duration="18231000" />
       <workItem from="1603422255364" duration="2365000" />
       <workItem from="1603789303143" duration="188000" />
-      <workItem from="1604887139760" duration="18765000" />
+      <workItem from="1604887139760" duration="22734000" />
+      <workItem from="1605245328804" duration="646000" />
+      <workItem from="1605492312172" duration="2970000" />
     </task>
     <servers />
   </component>

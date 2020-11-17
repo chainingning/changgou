@@ -1,8 +1,6 @@
-package com.changgou.token;
+package com.changgou.oauth.util;
 
 import com.alibaba.fastjson.JSON;
-import io.jsonwebtoken.Jwts;
-import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
@@ -14,19 +12,15 @@ import java.security.interfaces.RSAPrivateKey;
 import java.util.HashMap;
 import java.util.Map;
 
-/*****
- * @Author:
- * @Date: 2019/7/7 13:42
- * @Description: com.changgou.token
- *      创建JWT令牌，使用私钥加密
- ****/
-public class CreateJwtTest {
-
-    /***
-     * 创建令牌测试
-     */
-    @Test
-    public void testCreateToken(){
+/**
+ * @ClassName AdminToken
+ * @Description: 管理员令牌发放
+ * @Author ning.chai@foxmail.com
+ * @Date 2020/11/17 0017
+ * @Version V1.0
+ **/
+public class AdminToken {
+    public static String adminToken(){
         //证书文件路径
         String key_location="changgou.jks";
         //秘钥库密码
@@ -60,6 +54,6 @@ public class CreateJwtTest {
 
         //取出令牌
         String encoded = jwt.getEncoded();
-        System.out.println(encoded);
+        return encoded;
     }
 }

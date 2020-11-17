@@ -1,5 +1,9 @@
 package com.changgou.order.pojo;
 
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -26,6 +30,7 @@ public class OrderItem implements Serializable{
     @Column(name = "category_id3")
 	private Integer categoryId3;//3级分类
 
+	@JsonSerialize(using = ToStringSerializer.class)
     @Column(name = "spu_id")
 	private Long spuId;//SPU_ID
 
